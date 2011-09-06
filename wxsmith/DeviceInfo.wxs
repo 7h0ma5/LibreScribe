@@ -2,12 +2,13 @@
 <wxsmith>
 	<object class="wxDialog" name="DeviceInfo">
 		<title>Smartpen Device Information</title>
-		<size>585,165</size>
-		<minsize>585,165</minsize>
-		<maxsize>585,165</maxsize>
+		<size>520,200</size>
+		<minsize>520,200</minsize>
+		<maxsize>520,200</maxsize>
 		<id_arg>0</id_arg>
 		<object class="wxFlexGridSizer" variable="mainSizer" member="no">
-			<cols>3</cols>
+			<cols>2</cols>
+			<rows>2</rows>
 			<object class="sizeritem">
 				<object class="wxStaticBitmap" name="idInformationIcon" variable="infoIcon" member="yes">
 					<bitmap>res/dialog-information-128.png</bitmap>
@@ -20,6 +21,7 @@
 			<object class="sizeritem">
 				<object class="wxFlexGridSizer" variable="dialogSizer" member="no">
 					<cols>1</cols>
+					<rows>2</rows>
 					<object class="sizeritem">
 						<object class="wxStaticText" name="idDeviceTypeText" variable="deviceType" member="yes">
 							<label>LightScribe Pulse(TM) Smartpen</label>
@@ -97,8 +99,25 @@
 						<option>1</option>
 					</object>
 				</object>
-				<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
+				<flag>wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_TOP</flag>
 				<border>10</border>
+				<option>1</option>
+			</object>
+			<object class="spacer">
+				<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStdDialogButtonSizer" variable="buttonSizer" member="no">
+					<object class="button">
+						<object class="wxButton" name="wxID_OK">
+							<label></label>
+						</object>
+					</object>
+				</object>
+				<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>15</border>
 				<option>1</option>
 			</object>
 		</object>
