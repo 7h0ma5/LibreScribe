@@ -24,7 +24,6 @@ along with LibreScribe.  If not, see <http://www.gnu.org/licenses/>.
 	//*)
 #endif
 //(*InternalHeaders(DeviceInfo)
-#include <wx/button.h>
 #include <wx/font.h>
 #include <wx/bitmap.h>
 #include <wx/image.h>
@@ -52,16 +51,15 @@ DeviceInfo::DeviceInfo(wxWindow* parent, uint16_t productID, Smartpen* smartpen,
 	wxFlexGridSizer* mainSizer;
 	wxFlexGridSizer* informationSizer;
 	wxFlexGridSizer* dialogSizer;
-	wxStdDialogButtonSizer* buttonSizer;
 
 	Create(parent, wxID_ANY, _("Smartpen Device Information"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("wxID_ANY"));
-	SetClientSize(wxSize(520,200));
-	SetMinSize(wxSize(520,200));
-	SetMaxSize(wxSize(520,200));
-	mainSizer = new wxFlexGridSizer(2, 2, 0, 0);
+	SetClientSize(wxSize(585,165));
+	SetMinSize(wxSize(585,165));
+	SetMaxSize(wxSize(585,165));
+	mainSizer = new wxFlexGridSizer(0, 3, 0, 0);
 	infoIcon = new wxStaticBitmap(this, idInformationIcon, wxBitmap(wxImage(_T("res/dialog-information-128.png")).Rescale(wxSize(128,128).GetWidth(),wxSize(128,128).GetHeight())), wxDefaultPosition, wxSize(128,128), 0, _T("idInformationIcon"));
 	mainSizer->Add(infoIcon, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-	dialogSizer = new wxFlexGridSizer(2, 1, 0, 0);
+	dialogSizer = new wxFlexGridSizer(0, 1, 0, 0);
 	deviceType = new wxStaticText(this, idDeviceTypeText, _("LightScribe Pulse(TM) Smartpen"), wxDefaultPosition, wxDefaultSize, wxALIGN_LEFT, _T("idDeviceTypeText"));
 	wxFont deviceTypeFont(13,wxSWISS,wxFONTSTYLE_NORMAL,wxBOLD,false,_T("Sans"),wxFONTENCODING_DEFAULT);
 	deviceType->SetFont(deviceTypeFont);
@@ -83,12 +81,7 @@ DeviceInfo::DeviceInfo(wxWindow* parent, uint16_t productID, Smartpen* smartpen,
 	storageRemaining = new wxStaticText(this, idStorageRemaining, _("1.55GB of 2.13GB remaining"), wxDefaultPosition, wxDefaultSize, 0, _T("idStorageRemaining"));
 	informationSizer->Add(storageRemaining, 1, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 5);
 	dialogSizer->Add(informationSizer, 1, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP, 5);
-	mainSizer->Add(dialogSizer, 1, wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_TOP, 10);
-	mainSizer->Add(-1,-1,1, wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-	buttonSizer = new wxStdDialogButtonSizer();
-	buttonSizer->AddButton(new wxButton(this, wxID_OK, wxEmptyString));
-	buttonSizer->Realize();
-	mainSizer->Add(buttonSizer, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 15);
+	mainSizer->Add(dialogSizer, 1, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 10);
 	SetSizer(mainSizer);
 	mainSizer->SetSizeHints(this);
 	//*)
