@@ -252,8 +252,7 @@ char* Smartpen::getNamedObject(char* name, int* len) {
     if (state->body) {
         *len = state->body_len;
         state->body[state->body_len] = '\0';
-    }
-    else {
+    } else {
         *len = 0;
     }
     return state->body;
@@ -511,8 +510,7 @@ void Smartpen::getLspData(char* object_name, long long int start_time) {
     sprintf(loc, "%s%s", "./data/", object_name);
     if (FILE * file = fopen(loc, "r")) {
         fclose(file); //the file already exists
-    }
-    else {
+    } else {
         printf("Downloading object with guid %s from smartpen...\n",object_name);
         char* buf = getNamedObject(name, &len);
         FILE* out = fopen(loc, "w");
